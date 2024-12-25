@@ -16,7 +16,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-full bg-customNavbar">
+    <nav className="w-full bg-customNavbar ">
       <div className="flex items-center justify-between px-6 py-4">
         {/* Left side - Logo and Navigation Links */}
         <div className="flex items-center space-x-8">
@@ -30,7 +30,7 @@ const Navbar = () => {
 
           {/* Navigation Links - Hidden on mobile */}
           <div className="hidden md:flex space-x-6">
-            {["Home", "Products", "About", "Contact", "Updates"].map((item) => (
+            {["Products", "Updates"].map((item) => (
               <div
                 key={item}
                 onClick={() => handleNavigation(item)}

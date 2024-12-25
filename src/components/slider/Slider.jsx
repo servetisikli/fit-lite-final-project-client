@@ -1,11 +1,12 @@
 import React from "react";
 import Slider from "react-slick";
-import image1 from "../../assets/images/image.jpg";
-import image2 from "../../assets/images/image.jpg";
-import image3 from "../../assets/images/image.jpg";
-import image4 from "../../assets/images/image.jpg";
-import image5 from "../../assets/images/image.jpg";
-import image6 from "../../assets/images/image.jpg";
+import image1 from "../../assets/images/slider images/Treadmill.png";
+import image2 from "../../assets/images/slider images/Recumbent Bike.png";
+import image3 from "../../assets/images/slider images/Leg Curl Trainer.png";
+import image4 from "../../assets/images/slider images/Chest Press.png";
+import image5 from "../../assets/images/slider images/Push up Handle.png";
+import image6 from "../../assets/images/slider images/Creatine.png";
+import image7 from "../../assets/images/slider images/Whey Protein Isolate.png";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -38,7 +39,7 @@ const Slide = ({ image, alt, text }) => (
       <img
         src={image}
         alt={alt}
-        className="slide-image w-full h-48 object-cover rounded-lg"
+        className="slide-image w-full h-58 object-cover rounded-lg"
       />
       <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 rounded-lg">
         <div className="text-white p-4 rounded">{text}</div>
@@ -53,7 +54,7 @@ function CustomArrows() {
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    arrows: false, // Arrows are disabled
+    arrows: true, // Arrows are disabled
   };
 
   const images = [
@@ -63,6 +64,7 @@ function CustomArrows() {
     { src: image4, alt: "Slide 4", text: "Text for Slide 4" },
     { src: image5, alt: "Slide 5", text: "Text for Slide 5" },
     { src: image6, alt: "Slide 6", text: "Text for Slide 6" },
+    { src: image7, alt: "Slide 7", text: "Text for Slide 7" },
   ];
 
   return (
@@ -74,7 +76,7 @@ function CustomArrows() {
               key={index}
               image={image.src}
               alt={image.alt}
-              text={image.text}
+              /*  text={image.text} */
             />
           ))}
         </Slider>

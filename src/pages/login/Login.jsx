@@ -24,7 +24,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "https://fit-lite-final-project-server.onrender.com/api/auth/login",
         userLogIn
       );
       if (response.data) alert("User logged in succesfully");
@@ -104,7 +104,7 @@ const Login = () => {
         </button>
         <div className="text-center text-gray-700">
           Don't have an account?{" "}
-          <Link to="/auth/register" className="text-blue-600 underline">
+          <Link to="/signup" className="text-blue-600 underline">
             Sign up
           </Link>
         </div>
