@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useContext } from "react";
+import { useState } from "react";
 import axios from "axios";
 import PersonIcon from "@mui/icons-material/Person";
 import CancelPresentationOutlinedIcon from "@mui/icons-material/CancelPresentationOutlined";
@@ -22,7 +22,7 @@ const Registration = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/register",
+        "https://fit-lite-final-project-server.onrender.com/api/auth/register",
         userData
       );
       setDetails(response.data);

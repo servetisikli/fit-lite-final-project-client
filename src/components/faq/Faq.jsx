@@ -12,13 +12,13 @@ export default function Faq() {
 
         <Accordion
           sx={{
-            backgroundColor: "#7E6284", // customLightPurple
-            color: "white",
+            backgroundColor: "#FFFFF", // customLightPurple
+            color: "black",
             marginTop: "1rem",
           }}
         >
           <AccordionSummary
-            expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
+            expandIcon={<ExpandMoreIcon sx={{ color: "black" }} />}
             aria-controls="panel1-content"
             id="panel1-header"
           >
@@ -34,13 +34,13 @@ export default function Faq() {
         </Accordion>
         <Accordion
           sx={{
-            backgroundColor: "#7E6284", // customLightPurple
-            color: "white",
+            backgroundColor: "#FFFFF", // customLightPurple
+            color: "black",
             marginTop: "1rem",
           }}
         >
           <AccordionSummary
-            expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
+            expandIcon={<ExpandMoreIcon sx={{ color: "black" }} />}
             aria-controls="panel2-content"
             id="panel2-header"
           >
@@ -56,13 +56,13 @@ export default function Faq() {
         </Accordion>
         <Accordion
           sx={{
-            backgroundColor: "#7E6284", // customLightPurple
-            color: "white",
+            backgroundColor: "#FFFFF", // customLightPurple
+            color: "black",
             marginTop: "1rem",
           }}
         >
           <AccordionSummary
-            expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
+            expandIcon={<ExpandMoreIcon sx={{ color: "black" }} />}
             aria-controls="panel3-content"
             id="panel3-header"
           >

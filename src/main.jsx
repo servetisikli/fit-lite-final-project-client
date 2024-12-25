@@ -13,11 +13,12 @@ import "@fontsource/roboto/700.css";
 // React Slick
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { UserContextProvider } from "./contexts/UserContext.jsx";
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
+  <UserContextProvider>
     <Router>
       <App />
     </Router>
-  </StrictMode>
+  </UserContextProvider>
 );
