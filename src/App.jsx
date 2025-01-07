@@ -8,6 +8,9 @@ import Updates from "./pages/updates/Updates";
 import Signup from "./pages/signup/Signup";
 import Login from "./pages/login/Login";
 import MainLayout from "./layouts/MainLayout";
+import ProductPage from "./components/productList/ProductList";
+import ProductList from "./components/productList/ProductList";
+import ProductDetail from "./components/productDetail/ProductDetail";
 
 function App() {
   return (
@@ -20,6 +23,11 @@ function App() {
         <Route path="updates" element={<Updates />} />
         <Route path="signup" element={<Signup />} />
         <Route path="login" element={<Login />} />
+        <Route path="product" element={<ProductPage />} />
+        <Route path="shop" element={<ProductList />} />
+        <Route path="/product/:productId" element={<ProductDetail />} />
+
+
       </Route>
     </Routes>
   );

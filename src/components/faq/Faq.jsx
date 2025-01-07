@@ -6,76 +6,106 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export default function Faq() {
   return (
-    <div className="bg-customNavbar py-32">
-      <div className="container mx-auto px-4">
-        <h2 className="text-white text-center text-5xl font-bold mb-8 ">FAQ</h2>
-
-        <Accordion
-          sx={{
-            backgroundColor: "#FFFFF", // customLightPurple
-            color: "black",
-            marginTop: "1rem",
-          }}
-        >
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon sx={{ color: "black" }} />}
-            aria-controls="panel1-content"
-            id="panel1-header"
+    <div className="bg-customNavbar py-20 px-6">
+      <div className="container mx-auto max-w-3xl">
+        {" "}
+        <div className="text-center mb-16">
+          <span className="text-sm font-semibold text-customPurple tracking-wider uppercase">
+            GOT QUESTION?
+          </span>
+          <h1 className="text-5xl font-bold text-white mt-2 mb-4">
+            Frequently Asked Questions
+          </h1>
+          <div className="w-24 h-1 bg-customPurple mx-auto rounded-full"></div>
+        </div>
+        <div className="space-y-4">
+          {" "}
+          <Accordion
+            sx={{
+              backgroundColor: "#FFFFFF",
+              color: "black",
+              borderRadius: "0.75rem !important",
+              "&:before": {
+                display: "none",
+              },
+              boxShadow:
+                "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+            }}
           >
-            <h2>Why FitLite?</h2>
-          </AccordionSummary>
-          <AccordionDetails>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
-            </p>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion
-          sx={{
-            backgroundColor: "#FFFFF", // customLightPurple
-            color: "black",
-            marginTop: "1rem",
-          }}
-        >
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon sx={{ color: "black" }} />}
-            aria-controls="panel2-content"
-            id="panel2-header"
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon sx={{ color: "#B433FF" }} />}
+              aria-controls="panel1-content"
+              id="panel1-header"
+            >
+              <h2 className="text-lg font-semibold">Why FitLite?</h2>
+            </AccordionSummary>
+            <AccordionDetails>
+              <p className="text-gray-600">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
+                eget.
+              </p>
+            </AccordionDetails>
+          </Accordion>
+          <Accordion
+            sx={{
+              backgroundColor: "#FFFFFF",
+              color: "black",
+              borderRadius: "0.75rem !important",
+              "&:before": {
+                display: "none",
+              },
+              boxShadow:
+                "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+            }}
           >
-            <h2>How do i become a member?</h2>
-          </AccordionSummary>
-          <AccordionDetails>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
-            </p>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion
-          sx={{
-            backgroundColor: "#FFFFF", // customLightPurple
-            color: "black",
-            marginTop: "1rem",
-          }}
-        >
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon sx={{ color: "black" }} />}
-            aria-controls="panel3-content"
-            id="panel3-header"
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon sx={{ color: "#B433FF" }} />}
+              aria-controls="panel2-content"
+              id="panel2-header"
+            >
+              <h2 className="text-lg font-semibold">
+                How do I become a member?
+              </h2>
+            </AccordionSummary>
+            <AccordionDetails>
+              <p className="text-gray-600">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
+                eget.
+              </p>
+            </AccordionDetails>
+          </Accordion>
+          <Accordion
+            sx={{
+              backgroundColor: "#FFFFFF",
+              color: "black",
+              borderRadius: "0.75rem !important",
+              "&:before": {
+                display: "none",
+              },
+              boxShadow:
+                "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+            }}
           >
-            <h2>What are the benefits of being a member?</h2>
-          </AccordionSummary>
-          <AccordionDetails>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
-            </p>
-          </AccordionDetails>
-        </Accordion>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon sx={{ color: "#B433FF" }} />}
+              aria-controls="panel3-content"
+              id="panel3-header"
+            >
+              <h2 className="text-lg font-semibold">
+                What are the benefits of being a member?
+              </h2>
+            </AccordionSummary>
+            <AccordionDetails>
+              <p className="text-gray-600">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
+                eget.
+              </p>
+            </AccordionDetails>
+          </Accordion>
+        </div>
       </div>
     </div>
   );

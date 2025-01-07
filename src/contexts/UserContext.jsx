@@ -2,17 +2,19 @@ import { createContext, useState } from "react";
 
 export const UserContext = createContext();
 
-export function UserContextProvider({ children }) {
-  const [isUserLoggedIn, setItUserLoggedIn] = useState(false);
+export const UserProvider = ({ children }) => {
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(
+    !!localStorage.getItem("user")
+  );
 
   return (
     <UserContext.Provider
       value={{
         isUserLoggedIn,
-        setItUserLoggedIn,
+        setIsUserLoggedIn,
       }}
     >
       {children}
     </UserContext.Provider>
   );
-}
+};

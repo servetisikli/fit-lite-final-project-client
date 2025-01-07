@@ -1,26 +1,74 @@
 import backgroundImage from "../../assets/images/background images/Gym equipment.png";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
+  const navigate = useNavigate();
+
+  const handleNavigation = () => {
+    navigate("/shop");
+  };
+
   return (
     <div
       className="relative bg-cover bg-center h-screen flex flex-col justify-center items-center"
-      style={{ backgroundImage: `url(${backgroundImage})` }}
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundAttachment: "fixed",
+      }}
     >
-      <div className="absolute inset-0 bg-black opacity-50"></div>
-      <h1 className="relative text-white text-5xl font-bold mb-4 text-center font-koho">
-        FITlite WELCOMES YOU
-        <br />
-        <span className="text-3xl text-white text-opacity-50">
+      {/* Overlay gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70"></div>
+
+      {/* Content Container */}
+      <div className="relative z-10 container mx-auto px-4 text-center">
+        {/* Main Heading */}
+        <h1 className="text-white text-6xl font-bold mb-6 font-koho transform transition-all duration-700 hover:scale-105">
+          FITlite WELCOMES YOU
+        </h1>
+
+        {/* Subheading */}
+        <p className="text-3xl text-customPurple font-semibold mb-12 tracking-wide">
           GEAR UP! GLOW UP! FLUSH IT!
-        </span>
-      </h1>
-      <div className="relative flex space-x-4">
-        <button className="bg-white bg-opacity-50 text-white py-2 px-4 rounded text-lg">
-          Learn More
-        </button>
-        <button className="bg-white text-black py-2 px-4 rounded text-lg">
-          Get Started
-        </button>
+        </p>
+
+        {/* Buttons Container */}
+        <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+          <button className="group bg-customPurple text-white py-3 px-8 rounded-lg text-lg font-medium transition-all duration-300 hover:bg-opacity-90 hover:transform hover:scale-105 w-48 flex items-center justify-center space-x-2">
+            <span onClick={handleNavigation}>Shop Now!</span>
+            <svg
+              className="w-5 h-5 transform transition-transform duration-300 group-hover:translate-x-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M13 7l5 5m0 0l-5 5m5-5H6"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <svg
+          className="w-6 h-6 text-white"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M19 14l-7 7m0 0l-7-7m7 7V3"
+          />
+        </svg>
       </div>
     </div>
   );
