@@ -122,7 +122,7 @@ const Checkout = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/orders/orders",
+        "https://fit-lite-final-project-server.onrender.com/api/orders/orders",
         {
           customerInfo: {
             firstName: formData.firstName,
