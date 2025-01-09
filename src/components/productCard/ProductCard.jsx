@@ -3,19 +3,40 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FiHeart, FiEye, FiShoppingBag } from "react-icons/fi";
 import { AiFillHeart } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import { useCart } from "../../contexts/CartContext";
 
-const ProductCard = ({ product, onAddToCart }) => {
+const ProductCard = ({ product }) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const [isAddingToCart, setIsAddingToCart] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const navigate = useNavigate();
+  const { addItem, cart } = useCart();
+  const [isInCart, setIsInCart] = useState(false);
+
+  // useEffect
+  React.useEffect(() => {
+    const isItemInCart = cart.items.some((item) => item.id === product._id);
+    setIsInCart(isItemInCart);
+  }, [cart.items, product._id]);
 
   const handleAddToCart = async () => {
+    if (isInCart) return;
+
     setIsAddingToCart(true);
     try {
-      await onAddToCart(product);
-      setShowSuccess(true);
-      setTimeout(() => setShowSuccess(false), 2000);
+      const cartItem = {
+        id: product._id,
+        name: product.name,
+        price: product.price,
+        image: product.image,
+        category: product.category,
+        quantity: 1,
+      };
+
+      addItem(cartItem);
+      setIsInCart(true);
+    } catch (error) {
+      console.error("Failed to add to cart:", error);
     } finally {
       setIsAddingToCart(false);
     }
@@ -103,43 +124,59 @@ const ProductCard = ({ product, onAddToCart }) => {
             </div>
 
             <AnimatePresence>
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={handleAddToCart}
-                disabled={isAddingToCart}
-                className={`relative px-6 py-3 rounded-xl overflow-hidden
-                bg-gradient-to-r from-purple-600 to-indigo-600
-                text-white font-medium shadow-lg shadow-purple-500/30 
-                hover:shadow-purple-500/40 transition-all duration-300
-                flex items-center gap-2 ${
-                  isAddingToCart || showSuccess ? "opacity-75" : ""
-                }`}
-              >
-                {showSuccess ? (
-                  <motion.span
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    className="flex items-center gap-2"
-                  >
-                    Added! ✓
-                  </motion.span>
-                ) : isAddingToCart ? (
+              {isInCart ? (
+                <motion.button
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="px-6 py-3 rounded-xl
+        bg-green-500 text-white font-medium
+        flex items-center gap-2 cursor-default"
+                >
                   <span className="flex items-center gap-2">
-                    <span
-                      className="w-4 h-4 border-2 border-white/30 border-t-white 
-                    rounded-full animate-spin"
-                    />
-                    Adding...
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    Added to Cart
                   </span>
-                ) : (
-                  <span className="flex items-center gap-2">
-                    <FiShoppingBag className="h-5 w-5" />
-                    Add to Cart
-                  </span>
-                )}
-              </motion.button>
+                </motion.button>
+              ) : (
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={handleAddToCart}
+                  disabled={isAddingToCart}
+                  className={`relative px-6 py-3 rounded-xl overflow-hidden
+        bg-gradient-to-r from-purple-600 to-indigo-600
+        text-white font-medium shadow-lg shadow-purple-500/30 
+        hover:shadow-purple-500/40 transition-all duration-300
+        flex items-center gap-2 ${isAddingToCart ? "opacity-75" : ""}`}
+                >
+                  {isAddingToCart ? (
+                    <span className="flex items-center gap-2">
+                      <span
+                        className="w-4 h-4 border-2 border-white/30 border-t-white 
+            rounded-full animate-spin"
+                      />
+                      Adding...
+                    </span>
+                  ) : (
+                    <span className="flex items-center gap-2">
+                      <FiShoppingBag className="h-5 w-5" />
+                      Add to Cart
+                    </span>
+                  )}
+                </motion.button>
+              )}
             </AnimatePresence>
           </div>
         </div>

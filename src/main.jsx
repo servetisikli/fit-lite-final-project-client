@@ -14,11 +14,14 @@ import "@fontsource/roboto/700.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { UserProvider } from "./contexts/UserContext.jsx";
+import { CartProvider } from "./contexts/CartContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <UserProvider>
-    <Router>
-      <App />
-    </Router>
+    <CartProvider>
+      <Router>
+        <App />
+      </Router>
+    </CartProvider>
   </UserProvider>
 );

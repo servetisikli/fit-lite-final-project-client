@@ -13,6 +13,7 @@ import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import HeadsetMicIcon from "@mui/icons-material/HeadsetMic";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import { useCart } from "../../contexts/CartContext";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const Navbar = () => {
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const { isUserLoggedIn, setIsUserLoggedIn } = useContext(UserContext);
-  const [cartCount, setCartCount] = useState(3);
+  const { cart, getItemCount } = useCart();
   const [userInfo, setUserInfo] = useState(null);
 
   useEffect(() => {
@@ -154,17 +155,37 @@ const Navbar = () => {
               <button
                 onClick={() => handleNavigation("/cart")}
                 className="text-white hover:text-customPurple p-2 rounded-full 
-                    hover:bg-white/5 transition-all duration-300 relative"
+      hover:bg-white/5 transition-all duration-300 relative group"
                 title="Cart"
               >
                 <ShoppingCartIcon />
-                {cartCount > 0 && (
-                  <span
-                    className="absolute -top-1 -right-1 bg-customPurple text-white 
-                      text-xs w-5 h-5 rounded-full flex items-center justify-center"
-                  >
-                    {cartCount}
-                  </span>
+                {getItemCount() > 0 && (
+                  <>
+                    <span
+                      className="absolute -top-1 -right-1 bg-customPurple text-white 
+          text-xs w-5 h-5 rounded-full flex items-center justify-center"
+                    >
+                      {getItemCount()}
+                    </span>
+
+                    {/* Hover tooltip showing cart total */}
+                    <div
+                      className="absolute right-0 top-full mt-2 w-48 bg-customNavbar 
+        border border-white/10 rounded-lg shadow-xl opacity-0 invisible 
+        group-hover:opacity-100 group-hover:visible transition-all duration-300 
+        p-3 text-white text-sm"
+                    >
+                      <div className="flex justify-between items-center">
+                        <span>Cart Total:</span>
+                        <span className="font-medium">
+                          ${cart.total.toFixed(2)}
+                        </span>
+                      </div>
+                      <div className="mt-2 text-xs text-white/70">
+                        {getItemCount()} items in cart
+                      </div>
+                    </div>
+                  </>
                 )}
               </button>
 
@@ -316,6 +337,28 @@ ${isOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
                   </button>
                 </div>
               </form>
+            </div>
+
+            {/* Mobile Cart Info */}
+            <div className="p-4 border-b border-white/10">
+              <button
+                onClick={() => {
+                  navigate("/cart");
+                  setIsOpen(false);
+                }}
+                className="w-full flex items-center justify-between px-4 py-3 
+      text-white hover:bg-white/10 rounded-lg"
+              >
+                <div className="flex items-center space-x-3">
+                  <ShoppingCartIcon fontSize="small" />
+                  <span>Shopping Cart</span>
+                </div>
+                {getItemCount() > 0 && (
+                  <span className="bg-customPurple px-2 py-1 rounded-full text-sm">
+                    {getItemCount()}
+                  </span>
+                )}
+              </button>
             </div>
 
             {/* Mobile User Info */}

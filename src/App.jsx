@@ -11,6 +11,10 @@ import MainLayout from "./layouts/MainLayout";
 import ProductPage from "./components/productList/ProductList";
 import ProductList from "./components/productList/ProductList";
 import ProductDetail from "./components/productDetail/ProductDetail";
+import SearchResults from "./components/searchResults/SearchResults";
+import Cart from "./pages/cart/Cart";
+import Checkout from "./pages/checkout/Checkout";
+import OrderSuccess from "./pages/checkout/OrderSuccess";
 
 function App() {
   return (
@@ -26,7 +30,12 @@ function App() {
         <Route path="product" element={<ProductPage />} />
         <Route path="shop" element={<ProductList />} />
         <Route path="/product/:productId" element={<ProductDetail />} />
-
+        <Route path="/search" element={<SearchResults />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/order-success" element={<OrderSuccess />} />
 
       </Route>
     </Routes>
