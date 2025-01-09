@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ProductCard from "../productCard/ProductCard";
 import { FiGrid, FiList, FiSliders } from "react-icons/fi";
+import { useSearchParams } from "react-router-dom";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -9,6 +10,7 @@ const ProductList = () => {
   const [sortBy, setSortBy] = useState("newest");
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const sortOptions = [
     { value: "newest", label: "Newest First" },
@@ -18,8 +20,35 @@ const ProductList = () => {
     { value: "name-desc", label: "Name (Z-A)" },
   ];
 
+  async function fetchProducts() {
+    let response;
+    try {
+      setIsLoading(true);
+      if (searchParams.has("cat")) {
+        response = await axios.get(
+          `https://fit-lite-final-project-server.onrender.com/api/products/category/${searchParams.get(
+            "cat"
+          )}`
+        );
+      } else {
+        response = await axios.get(
+          "https://fit-lite-final-project-server.onrender.com/api/products"
+        );
+      }
+
+      setProducts(response.data);
+    } catch (error) {
+      console.error("Failed to fetch products:", error);
+      setError("Failed to load products. Please try again later.");
+    } finally {
+      setIsLoading(false);
+    }
+  }
   useEffect(() => {
-    const fetchProducts = async () => {
+    console.log(searchParams.has("cat"));
+    fetchProducts();
+
+    /* const fetchProducts = async () => {
       try {
         setIsLoading(true);
         const response = await axios.get(
@@ -34,7 +63,7 @@ const ProductList = () => {
       }
     };
 
-    fetchProducts();
+    fetchProducts(); */
   }, []);
 
   // Sort products based on selected option
@@ -69,7 +98,11 @@ const ProductList = () => {
         className="flex flex-col sm:flex-row justify-between items-start 
       sm:items-center space-y-4 sm:space-y-0 mb-8"
       >
-        <h1 className="text-3xl font-bold text-gray-800">Our Products</h1>
+        <h1 className="text-3xl font-bold text-gray-800">
+          {searchParams.has("cat")
+            ? `${searchParams.get("cat")} Products`
+            : "Our Products"}
+        </h1>
 
         <div className="flex items-center space-x-4">
           {/* View Type Toggles */}
