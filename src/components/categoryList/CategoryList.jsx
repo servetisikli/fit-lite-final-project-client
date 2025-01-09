@@ -1,40 +1,48 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const categories = [
   {
     id: 1,
-    name: "Category 1",
-    image: "https://res.cloudinary.com/dw5lopqza/image/upload/c_thumb,w_200,g_face/v1733251254/Star_Trainer_EAS10_h5rzdx.png",
+    name: "Cardio",
+    image:
+      "https://res.cloudinary.com/dw5lopqza/image/upload/c_thumb,w_200,g_face/v1733251254/Star_Trainer_EAS10_h5rzdx.png",
   },
   {
     id: 2,
-    name: "Category 2",
-    image: "https://res.cloudinary.com/dw5lopqza/image/upload/c_thumb,w_200,g_face/v1733252257/Medicine_Ball_FTX_ec8uuy.png",
+    name: "Aerobic",
+    image:
+      "https://res.cloudinary.com/dw5lopqza/image/upload/c_thumb,w_200,g_face/v1733251660/Jacobs_Ladder_TEC-1_cpzbl7.png",
   },
   {
     id: 3,
-    name: "Category 3",
-    image: "https://res.cloudinary.com/dw5lopqza/image/upload/c_thumb,w_200,g_face/v1733252586/Weight_Plate_FEOEEL_tfnyeo.png",
+    name: "Weigth Training",
+    image:
+      "https://res.cloudinary.com/dw5lopqza/image/upload/c_thumb,w_200,g_face/v1733252586/Weight_Plate_FEOEEL_tfnyeo.png",
   },
   {
     id: 4,
-    name: "Category 4",
-    image: "https://res.cloudinary.com/dw5lopqza/image/upload/c_thumb,w_200,g_face/v1733252578/Dumbell_ENDURENCE_hxvtx2.png",
+    name: "Pre-Workout",
+    image:
+      "https://res.cloudinary.com/dw5lopqza/image/upload/c_thumb,w_200,g_face/v1733253592/Legion_Leion_PULSE_tqathp.png",
   },
   {
     id: 5,
-    name: "Category 5",
-    image: "https://res.cloudinary.com/dw5lopqza/image/upload/c_thumb,w_200,g_face/v1733231586/Ergometer_Evo-1_r4mlvo.png",
+    name: "Body Building",
+    image:
+      "https://res.cloudinary.com/dw5lopqza/image/upload/c_thumb,w_200,g_face/v1733252578/Dumbell_ENDURENCE_hxvtx2.png",
   },
   {
     id: 6,
-    name: "Category 6",
-    image: "https://res.cloudinary.com/dw5lopqza/image/upload/c_thumb,w_200,g_face/v1733254945/healthy-1283793_1280_ghgky9.jpg",
+    name: "Accesories",
+    image:
+      "https://res.cloudinary.com/dw5lopqza/image/upload/c_thumb,w_200,g_face/v1733254945/healthy-1283793_1280_ghgky9.jpg",
   },
 ];
 
 const CategoryList = () => {
   const [hoveredId, setHoveredId] = useState(null);
+  const navigate = useNavigate();
 
   return (
     <div className="bg-customLightPurple py-20 px-6">
@@ -68,7 +76,14 @@ const CategoryList = () => {
                     {category.name}
                   </h2>
                   <div className="transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                    <button className="bg-customPurple text-white px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition-all duration-300 flex items-center space-x-2 hover:scale-105">
+                    <button
+                      on
+                      onClick={
+                        () => navigate(`/shop?cat=${category.name}`)
+                        /* navigate(`/shop?cat=${encodeURI(category.name)}`) */
+                      }
+                      className="bg-customPurple text-white px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition-all duration-300 flex items-center space-x-2 hover:scale-105"
+                    >
                       <span>View Category</span>
                       <svg
                         className="w-5 h-5 transform transition-transform duration-300 group-hover:translate-x-1"
