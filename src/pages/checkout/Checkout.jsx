@@ -349,7 +349,7 @@ const Checkout = () => {
                       >
                         <img
                           src={paypal}
-                          className="h-11 w-auto rounded-md peer-checked:ring-2 peer-checked:ring-blue-500"
+                          className="h-10 w-auto rounded-md peer-checked:ring-2 peer-checked:ring-blue-500"
                         />
                       </NavLink>
                     </label>
@@ -364,7 +364,7 @@ const Checkout = () => {
                       >
                         <img
                           src={klarna}
-                          className="h-11 w-auto rounded-md peer-checked:ring-2 peer-checked:ring-pink-500"
+                          className="h-10 w-auto rounded-md peer-checked:ring-2 peer-checked:ring-pink-500"
                         />
                       </NavLink>
                     </label>
@@ -378,7 +378,7 @@ const Checkout = () => {
                       >
                         <img
                           src={GooglePay}
-                          className="h-11 w-auto rounded-md peer-checked:ring-2 peer-checked:ring-green-500"
+                          className="h-10 w-auto rounded-md peer-checked:ring-2 peer-checked:ring-green-500"
                         />
                       </NavLink>
                     </label>
@@ -392,7 +392,7 @@ const Checkout = () => {
                       >
                         <img
                           src={ApplePay}
-                          className="h-11 w-auto rounded-md peer-checked:ring-2 peer-checked:ring-gray-800"
+                          className="h-10 w-auto rounded-md peer-checked:ring-2 peer-checked:ring-gray-800"
                         />
                       </NavLink>
                     </label>
