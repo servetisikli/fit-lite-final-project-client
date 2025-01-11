@@ -7,6 +7,8 @@ import paypal from "../../assets/logos/Paypal.png";
 import klarna from "../../assets/logos/Klarna.png";
 import ApplePay from "../../assets/logos/ApplePay.png";
 import GooglePay from "../../assets/logos/GooglePay.png";
+import { NavLink } from "react-router-dom";
+
 const Checkout = () => {
   const { cart, clearCart } = useCart();
   const [currentStep, setCurrentStep] = useState(1);
@@ -340,35 +342,59 @@ const Checkout = () => {
                     {/* PayPal Option */}
                     <label className="flex items-center gap-4 cursor-pointer">
                       <input type="radio" name="payment" value="paypal" />
-                      <img
-                        src={paypal}
-                        className="h-11 w-auto rounded-md peer-checked:ring-2 peer-checked:ring-blue-500"
-                      />
+                      <NavLink
+                        to="https://www.paypal.com/signin"
+                        target="_blank"
+                        rel="noreferer"
+                      >
+                        <img
+                          src={paypal}
+                          className="h-11 w-auto rounded-md peer-checked:ring-2 peer-checked:ring-blue-500"
+                        />
+                      </NavLink>
                     </label>
 
                     {/* Klarna Option */}
                     <label className="flex items-center gap-4 cursor-pointer">
                       <input type="radio" name="payment" value="klarna" />
-                      <img
-                        src={klarna}
-                        className="h-11 w-auto rounded-md peer-checked:ring-2 peer-checked:ring-pink-500"
-                      />
+                      <NavLink
+                        to="https://app.klarna.com/login"
+                        target="_blank"
+                        rel="noreferer"
+                      >
+                        <img
+                          src={klarna}
+                          className="h-11 w-auto rounded-md peer-checked:ring-2 peer-checked:ring-pink-500"
+                        />
+                      </NavLink>
                     </label>
                     {/* Google Pay Option */}
                     <label className="flex items-center gap-4 cursor-pointer">
                       <input type="radio" name="payment" value="google-pay" />
-                      <img
-                        src={GooglePay}
-                        className="h-11 w-auto rounded-md peer-checked:ring-2 peer-checked:ring-green-500"
-                      />
+                      <NavLink
+                        to="https://pay.google.com"
+                        target="_blank"
+                        rel="noreferer"
+                      >
+                        <img
+                          src={GooglePay}
+                          className="h-11 w-auto rounded-md peer-checked:ring-2 peer-checked:ring-green-500"
+                        />
+                      </NavLink>
                     </label>
                     {/* Apple Pay Option */}
                     <label className="flex items-center gap-4 cursor-pointer">
                       <input type="radio" name="payment" value="apple-pay" />
-                      <img
-                        src={ApplePay}
-                        className="h-11 w-auto rounded-md peer-checked:ring-2 peer-checked:ring-gray-800"
-                      />
+                      <NavLink
+                        to="https://www.apple.com/apple-pay/"
+                        target="_blank"
+                        rel="noreferer"
+                      >
+                        <img
+                          src={ApplePay}
+                          className="h-11 w-auto rounded-md peer-checked:ring-2 peer-checked:ring-gray-800"
+                        />
+                      </NavLink>
                     </label>
                   </div>
                 </div>
