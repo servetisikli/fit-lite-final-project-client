@@ -122,12 +122,12 @@ const Login = () => {
             </div>
 
             {/* Forgot Password Link */}
-            <div className="text-right">
+            <div className="text-center ">
               <Link
                 to="#"
-                className="text-sm text-white/70 hover:text-customPurple transition-colors duration-300"
+                className="text-sm text-white/70  hover:text-customPurple transition-colors duration-300 "
               >
-                Forgot password?
+                Forgot password ?
               </Link>
             </div>
 
