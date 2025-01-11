@@ -112,7 +112,7 @@ const Navbar = () => {
             <div className="flex items-center gap-4">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="md:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors duration-300"
+                className="md:hidden text-white p-2hover:bg-white/10 rounded-lg transition-colors duration-300"
               >
                 {isOpen ? <CloseIcon /> : <MenuIcon />}
               </button>
@@ -122,7 +122,7 @@ const Navbar = () => {
               >
                 {/*  <LocalMallIcon />
                 <span>FITlite</span> */}
-                <img src={logo} width={150} />
+                <img src={logo} width={150} className="ml-14" />
               </div>
             </div>
 
