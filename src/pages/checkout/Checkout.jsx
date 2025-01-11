@@ -3,7 +3,10 @@ import axios from "axios";
 import { useCart } from "../../contexts/CartContext";
 import { FiShoppingBag, FiUser, FiTruck, FiCreditCard } from "react-icons/fi";
 import { useNavigate, useLocation } from "react-router-dom";
-
+import paypal from "../../assets/logos/Paypal.png";
+import klarna from "../../assets/logos/Klarna.png";
+import ApplePay from "../../assets/logos/ApplePay.png";
+import GooglePay from "../../assets/logos/GooglePay.png";
 const Checkout = () => {
   const { cart, clearCart } = useCart();
   const [currentStep, setCurrentStep] = useState(1);
@@ -222,6 +225,55 @@ const Checkout = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-12 mt-20 sm:mt-30 md:mt-40 lg:mt-40 xl:mt-40">
       <div className="max-w-4xl mx-auto px-4">
+        {/* Order Summary */}
+        <div className="mt-8 bg-white rounded-2xl shadow-lg p-8 mb-20">
+          <div className="flex items-center mb-6">
+            <FiShoppingBag className="text-2xl text-gray-600 mr-3" />
+            <h2 className="text-2xl font-bold text-gray-800">Order Summary</h2>
+          </div>
+          <div className="space-y-4">
+            {cart.items.map((item) => (
+              <div
+                key={item.id}
+                className="flex justify-between items-center py-3 border-b"
+              >
+                <div className="flex items-center">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-16 h-16 object-cover rounded"
+                  />
+                  <div className="ml-4">
+                    <h3 className="font-semibold">{item.name}</h3>
+                    <p className="text-gray-500">Quantity: {item.quantity}</p>
+                  </div>
+                </div>
+                <span className="font-semibold">
+                  ${(item.price * item.quantity).toFixed(2)}
+                </span>
+              </div>
+            ))}
+
+            <div className="space-y-2 pt-4">
+              <div className="flex justify-between">
+                <span className="text-gray-600">Subtotal</span>
+                <span>${calculateTotals().subtotal}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-600">Shipping</span>
+                <span>${calculateTotals().shipping}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-600">Tax</span>
+                <span>${calculateTotals().tax}</span>
+              </div>
+              <div className="flex justify-between pt-4 border-t font-bold text-lg">
+                <span>Total</span>
+                <span>${calculateTotals().total}</span>
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="bg-white rounded-2xl shadow-lg p-8">
           {renderStepIndicator()}
 
@@ -284,6 +336,41 @@ const Checkout = () => {
                     )}
                     {renderFormField("cvv", "CVV", "text", "123")}
                   </div>
+                  <div className="flex flex-col items-start gap-4 p-6 bg-gray-100 rounded-lg shadow-md">
+                    {/* PayPal Option */}
+                    <label className="flex items-center gap-4 cursor-pointer">
+                      <input type="radio" name="payment" value="paypal" />
+                      <img
+                        src={paypal}
+                        className="h-11 w-auto rounded-md peer-checked:ring-2 peer-checked:ring-blue-500"
+                      />
+                    </label>
+
+                    {/* Klarna Option */}
+                    <label className="flex items-center gap-4 cursor-pointer">
+                      <input type="radio" name="payment" value="klarna" />
+                      <img
+                        src={klarna}
+                        className="h-11 w-auto rounded-md peer-checked:ring-2 peer-checked:ring-pink-500"
+                      />
+                    </label>
+                    {/* Google Pay Option */}
+                    <label className="flex items-center gap-4 cursor-pointer">
+                      <input type="radio" name="payment" value="google-pay" />
+                      <img
+                        src={GooglePay}
+                        className="h-11 w-auto rounded-md peer-checked:ring-2 peer-checked:ring-green-500"
+                      />
+                    </label>
+                    {/* Apple Pay Option */}
+                    <label className="flex items-center gap-4 cursor-pointer">
+                      <input type="radio" name="payment" value="apple-pay" />
+                      <img
+                        src={ApplePay}
+                        className="h-11 w-auto rounded-md peer-checked:ring-2 peer-checked:ring-gray-800"
+                      />
+                    </label>
+                  </div>
                 </div>
               </div>
             )}
@@ -323,56 +410,6 @@ const Checkout = () => {
               )}
             </div>
           </form>
-        </div>
-
-        {/* Order Summary */}
-        <div className="mt-8 bg-white rounded-2xl shadow-lg p-8">
-          <div className="flex items-center mb-6">
-            <FiShoppingBag className="text-2xl text-gray-600 mr-3" />
-            <h2 className="text-2xl font-bold text-gray-800">Order Summary</h2>
-          </div>
-          <div className="space-y-4">
-            {cart.items.map((item) => (
-              <div
-                key={item.id}
-                className="flex justify-between items-center py-3 border-b"
-              >
-                <div className="flex items-center">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="w-16 h-16 object-cover rounded"
-                  />
-                  <div className="ml-4">
-                    <h3 className="font-semibold">{item.name}</h3>
-                    <p className="text-gray-500">Quantity: {item.quantity}</p>
-                  </div>
-                </div>
-                <span className="font-semibold">
-                  ${(item.price * item.quantity).toFixed(2)}
-                </span>
-              </div>
-            ))}
-
-            <div className="space-y-2 pt-4">
-              <div className="flex justify-between">
-                <span className="text-gray-600">Subtotal</span>
-                <span>${calculateTotals().subtotal}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-gray-600">Shipping</span>
-                <span>${calculateTotals().shipping}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-gray-600">Tax</span>
-                <span>${calculateTotals().tax}</span>
-              </div>
-              <div className="flex justify-between pt-4 border-t font-bold text-lg">
-                <span>Total</span>
-                <span>${calculateTotals().total}</span>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
