@@ -6,37 +6,37 @@ const categories = [
     id: 1,
     name: "Cardio",
     image:
-      "https://res.cloudinary.com/dw5lopqza/image/upload/c_thumb,w_200,g_face/v1733251254/Star_Trainer_EAS10_h5rzdx.png",
+      "https://res.cloudinary.com/dw5lopqza/image/upload/v1733251254/Star_Trainer_EAS10_h5rzdx.png",
   },
   {
     id: 2,
     name: "Aerobic",
     image:
-      "https://res.cloudinary.com/dw5lopqza/image/upload/c_thumb,w_200,g_face/v1733251660/Jacobs_Ladder_TEC-1_cpzbl7.png",
+      "https://res.cloudinary.com/dw5lopqza/image/upload/v1733251656/Crosswalker_GOHCEO_ESPACE_xgtino.png",
   },
   {
     id: 3,
     name: "Weigth Training",
     image:
-      "https://res.cloudinary.com/dw5lopqza/image/upload/c_thumb,w_200,g_face/v1733252586/Weight_Plate_FEOEEL_tfnyeo.png",
+      "https://res.cloudinary.com/dw5lopqza/image/upload/v1733252583/Multi_Press_Bar_CY-TEC_orelwn.png",
   },
   {
     id: 4,
     name: "Pre-Workout",
     image:
-      "https://res.cloudinary.com/dw5lopqza/image/upload/c_thumb,w_200,g_face/v1733253592/Legion_Leion_PULSE_tqathp.png",
+      "https://res.cloudinary.com/dw5lopqza/image/upload/v1733253592/Legion_Leion_PULSE_tqathp.png",
   },
   {
     id: 5,
     name: "Body Building",
     image:
-      "https://res.cloudinary.com/dw5lopqza/image/upload/c_thumb,w_200,g_face/v1733252578/Dumbell_ENDURENCE_hxvtx2.png",
+      "https://res.cloudinary.com/dw5lopqza/image/upload/v1733252578/Dumbell_ENDURENCE_hxvtx2.png",
   },
   {
     id: 6,
     name: "Accesories",
     image:
-      "https://res.cloudinary.com/dw5lopqza/image/upload/c_thumb,w_200,g_face/v1733254945/healthy-1283793_1280_ghgky9.jpg",
+      "https://res.cloudinary.com/dw5lopqza/image/upload/v1733254945/healthy-1283793_1280_ghgky9.jpg",
   },
 ];
 
@@ -72,7 +72,7 @@ const CategoryList = () => {
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-30 transition-opacity duration-300 group-hover:bg-opacity-50 flex flex-col justify-center items-center">
-                  <h2 className="text-3xl font-bold text-white mb-4">
+                  <h2 className="text-3xl font-bold text-white mb-4 opacity-70">
                     {category.name}
                   </h2>
                   <div className="transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
@@ -82,7 +82,7 @@ const CategoryList = () => {
                         () => navigate(`/shop?cat=${category.name}`)
                         /* navigate(`/shop?cat=${encodeURI(category.name)}`) */
                       }
-                      className="bg-customPurple text-white px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition-all duration-300 flex items-center space-x-2 hover:scale-105"
+                      className="bg-customPurple text-white px-6 py-3 rounded-lg font-medium hover:bg-opacity-80 transition-all duration-300 flex items-center space-x-2 hover:scale-105"
                     >
                       <span>View Category</span>
                       <svg
