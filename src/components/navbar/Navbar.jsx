@@ -14,7 +14,7 @@ import HeadsetMicIcon from "@mui/icons-material/HeadsetMic";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { useCart } from "../../contexts/CartContext";
-import logo from "../../assets/images/new final logo.png";
+import logo from "../../assets/images/logo.png";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -120,9 +120,9 @@ const Navbar = () => {
                 onClick={() => handleNavigation("/")}
                 className="text-white text-2xl font-bold cursor-pointer hover:text-customPurple transition-all duration-300 flex items-center gap-2"
               >
-                <LocalMallIcon />
-                <span>FITlite</span>
-                {/* <img src={logo} width={150} /> */}
+                {/*  <LocalMallIcon />
+                <span>FITlite</span> */}
+                <img src={logo} width={150} />
               </div>
             </div>
 
