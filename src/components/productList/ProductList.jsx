@@ -45,7 +45,6 @@ const ProductList = () => {
     }
   }
   useEffect(() => {
-    console.log(searchParams.has("cat"));
     fetchProducts();
 
     /* const fetchProducts = async () => {
