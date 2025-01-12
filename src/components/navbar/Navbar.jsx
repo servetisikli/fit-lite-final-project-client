@@ -22,7 +22,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  const { isUserLoggedIn, setIsUserLoggedIn } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const { cart, getItemCount } = useCart();
   const [userInfo, setUserInfo] = useState(null);
 
@@ -35,7 +35,7 @@ const Navbar = () => {
     };
 
     updateUserInfo();
-    if (isUserLoggedIn) {
+    if (user) {
       updateUserInfo();
     }
 
@@ -44,7 +44,7 @@ const Navbar = () => {
     return () => {
       window.removeEventListener("storage", updateUserInfo);
     };
-  }, [isUserLoggedIn]);
+  }, [user]);
 
   const mainCategories = [
     { name: "New Arrivals", path: "/new-arrivals" },
@@ -62,7 +62,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("user");
-    setIsUserLoggedIn(false);
+    setUser(false);
     setUserInfo(null);
     navigate("/");
     setIsOpen(false);
@@ -93,7 +93,7 @@ const Navbar = () => {
             </div>
           </div>
           <div className="flex items-center gap-4">
-            {isUserLoggedIn && userInfo && (
+            {user && userInfo && (
               <span className="text-white/80">Welcome, {userInfo.email}</span>
             )}
             <span className="hidden md:inline">
@@ -193,7 +193,7 @@ const Navbar = () => {
 
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center space-x-6">
-                {isUserLoggedIn ? (
+                {user ? (
                   <>
                     <button
                       onClick={() => handleNavigation("/wishlist")}
@@ -364,7 +364,7 @@ ${isOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
             </div>
 
             {/* Mobile User Info */}
-            {isUserLoggedIn && userInfo && (
+            {user && userInfo && (
               <div className="p-4 border-b border-white/10">
                 <div className="flex items-center space-x-3">
                   <PersonOutlineIcon className="text-white" />
@@ -402,7 +402,7 @@ ${isOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
               {/* Mobile Quick Links */}
               <div className="p-4 border-t border-white/10">
                 <div className="space-y-2">
-                  {isUserLoggedIn ? (
+                  {user ? (
                     <>
                       <button
                         onClick={() => {
