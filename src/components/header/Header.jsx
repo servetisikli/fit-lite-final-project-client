@@ -27,8 +27,9 @@ function Header() {
         </h1>
 
         {/* Subheading */}
-        <p className="text-3xl text-customPurple font-semibold mb-12 tracking-wide">
-          GEAR UP! GLOW UP! FLUSH IT!
+        <p className="text-3xl text-yellow-700 font-semibold mb-12 tracking-wide">
+          GEAR UP! <span className="text-yellow-500">WORK UP! </span>
+          <span className="text-yellow-300">GLOW UP!</span>
         </p>
 
         {/* Buttons Container */}
