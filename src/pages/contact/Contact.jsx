@@ -4,7 +4,6 @@ import PermPhoneMsgIcon from "@mui/icons-material/PermPhoneMsg";
 import EmailIcon from "@mui/icons-material/Email";
 import LanguageIcon from "@mui/icons-material/Language";
 import logo from "../../assets/images/logo.png";
-import { div } from "framer-motion/client";
 
 const ContactForm = () => {
   const [formState, setFormState] = useState({
