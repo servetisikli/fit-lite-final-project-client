@@ -110,7 +110,7 @@ const OrderHistory = () => {
                           Order #{order.orderNumber}
                         </span>
                         <span className="bg-blue-400 text-white px-3 py-1 rounded-full text-sm">
-                          ${order.totals?.total?.toFixed(2) || "N/A"}
+                          €{order.totals?.total?.toFixed(2) || "N/A"}
                         </span>
                       </div>
                       <span className="text-blue-100">
@@ -143,7 +143,7 @@ const OrderHistory = () => {
                               </span>
                             </div>
                             <span className="font-medium text-gray-900">
-                              ${item.price.toFixed(2)}
+                              €{item.price.toFixed(2)}
                             </span>
                           </div>
                         ))}

@@ -23,7 +23,7 @@ const OrderSuccess = () => {
           )}
           {orderTotal && (
             <p className="text-gray-800 font-medium mb-6">
-              Total Amount: ${orderTotal}
+              Total Amount: €{orderTotal}
             </p>
           )}
           <div className="text-left mb-6">
@@ -51,7 +51,7 @@ const OrderSuccess = () => {
                       </div>
                     </div>
                     <span className="font-semibold">
-                      ${(item.price * item.quantity).toFixed(2)}
+                      €{(item.price * item.quantity).toFixed(2)}
                     </span>
                   </div>
                 ))}
