@@ -3,6 +3,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import XIcon from "@mui/icons-material/X";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -61,12 +62,12 @@ const Footer = () => {
             </h2>
             <ul className="space-y-4">
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/contact"
                   className="text-white hover:text-customPurple transition-colors duration-300"
                 >
                   Contact Us
-                </a>
+                </Link>
               </li>
               <li>
                 <a
