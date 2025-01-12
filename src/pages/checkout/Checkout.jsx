@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useCart } from "../../contexts/CartContext";
 import { FiShoppingBag, FiUser, FiTruck, FiCreditCard } from "react-icons/fi";
@@ -8,18 +8,20 @@ import klarna from "../../assets/logos/Klarna.png";
 import ApplePay from "../../assets/logos/ApplePay.png";
 import GooglePay from "../../assets/logos/GooglePay.png";
 import { NavLink } from "react-router-dom";
+import { UserContext } from "../../contexts/UserContext"; // UserContext'i içe aktarın
 
 const Checkout = () => {
   const { cart, clearCart } = useCart();
+  const { user } = useContext(UserContext); // Kullanıcı bilgilerini alın
   const [currentStep, setCurrentStep] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
   const [formData, setFormData] = useState({
-    firstName: "",
+    firstName: user ? user.firstName : "",
     lastName: "",
-    email: "",
+    email: user ? user.email : "",
     phone: "",
     address: "",
     city: "",
@@ -126,33 +128,44 @@ const Checkout = () => {
     const totals = calculateTotals();
 
     try {
+      const orderData = {
+        customerInfo: {
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          phone: formData.phone,
+        },
+        shippingAddress: {
+          address: formData.address,
+          city: formData.city,
+          zipCode: formData.zipCode,
+          country: formData.country,
+        },
+        orderItems: cart.items.map((item) => ({
+          productId: item.id,
+          name: item.name,
+          price: item.price,
+          quantity: item.quantity,
+        })),
+        paymentInfo: {
+          method: "credit_card",
+          status: "pending",
+        },
+        totals,
+      };
+
+      const config = user
+        ? {
+            headers: {
+              Authorization: `Bearer ${user.token}`,
+            },
+          }
+        : {};
+
       const response = await axios.post(
         "https://fit-lite-final-project-server.onrender.com/api/orders/orders",
-        {
-          customerInfo: {
-            firstName: formData.firstName,
-            lastName: formData.lastName,
-            email: formData.email,
-            phone: formData.phone,
-          },
-          shippingAddress: {
-            address: formData.address,
-            city: formData.city,
-            zipCode: formData.zipCode,
-            country: formData.country,
-          },
-          orderItems: cart.items.map((item) => ({
-            productId: item.id,
-            name: item.name,
-            price: item.price,
-            quantity: item.quantity,
-          })),
-          paymentInfo: {
-            method: "credit_card",
-            status: "pending",
-          },
-          totals,
-        }
+        orderData,
+        config
       );
 
       if (response.data.success) {
