@@ -77,7 +77,6 @@ const CategoryList = () => {
                   </h2>
                   <div className="transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
                     <button
-                      on
                       onClick={
                         () => navigate(`/shop?cat=${category.name}`)
                         /* navigate(`/shop?cat=${encodeURI(category.name)}`) */
