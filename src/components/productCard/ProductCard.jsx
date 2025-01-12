@@ -119,7 +119,7 @@ const ProductCard = ({ product }) => {
             <div className="flex flex-col">
               <span className="text-sm text-gray-500">Price</span>
               <span className="text-2xl font-bold text-gray-900">
-                ${product.price}
+                €{product.price}
               </span>
             </div>
 

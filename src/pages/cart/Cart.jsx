@@ -24,7 +24,6 @@ const Cart = () => {
     });
   };
 
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -166,10 +165,10 @@ const Cart = () => {
                     {/* Price */}
                     <div className="text-right">
                       <p className="text-base sm:text-lg font-medium text-gray-800">
-                        ${(item.price * item.quantity).toFixed(2)}
+                        €{(item.price * item.quantity).toFixed(2)}
                       </p>
                       <p className="text-xs sm:text-sm text-gray-500">
-                        ${item.price.toFixed(2)} each
+                        €{item.price.toFixed(2)} each
                       </p>
                     </div>
                   </div>
@@ -211,7 +210,7 @@ const Cart = () => {
             <div className="space-y-3 text-sm sm:text-base text-gray-600">
               <div className="flex justify-between">
                 <span>Subtotal</span>
-                <span>${getCartTotal().toFixed(2)}</span>
+                <span>€{getCartTotal().toFixed(2)}</span>
               </div>
               <div className="flex justify-between">
                 <span>Shipping</span>
@@ -222,7 +221,7 @@ const Cart = () => {
                 text-base sm:text-lg font-bold text-gray-800"
               >
                 <span>Total</span>
-                <span>${getCartTotal().toFixed(2)}</span>
+                <span>€{getCartTotal().toFixed(2)}</span>
               </div>
             </div>
 

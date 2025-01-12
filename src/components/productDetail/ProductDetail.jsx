@@ -4,7 +4,7 @@ import axios from "axios";
 import { motion } from "framer-motion";
 import { FiShoppingCart, FiHeart, FiShare2 } from "react-icons/fi";
 import { AiFillStar, AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
-import { useCart } from '../../contexts/CartContext';
+import { useCart } from "../../contexts/CartContext";
 
 const ProductDetail = () => {
   const { productId } = useParams();
@@ -40,14 +40,13 @@ const ProductDetail = () => {
 
     setIsAddingToCart(true);
     try {
-      
       const cartItem = {
         id: product._id,
         name: product.name,
         price: product.price,
         image: product.image,
         category: product.category,
-        quantity: quantity
+        quantity: quantity,
       };
 
       addItem(cartItem);
@@ -121,7 +120,7 @@ const ProductDetail = () => {
             {/* Price */}
             <div className="flex items-baseline gap-4">
               <span className="text-4xl font-bold text-gray-900">
-                ${product.price.toFixed(2)}
+                €{product.price.toFixed(2)}
               </span>
               {product.originalPrice && (
                 <span className="text-xl text-gray-500 line-through">
@@ -148,7 +147,9 @@ const ProductDetail = () => {
                 </button>
                 <span className="px-4 py-2 border-x">{quantity}</span>
                 <button
-                  onClick={() => setQuantity(Math.min(product.stock, quantity + 1))}
+                  onClick={() =>
+                    setQuantity(Math.min(product.stock, quantity + 1))
+                  }
                   className="p-2 hover:bg-gray-100 rounded-r-lg"
                   disabled={quantity >= product.stock}
                 >
@@ -169,7 +170,9 @@ const ProductDetail = () => {
                   product.stock > 0 ? "text-green-600" : "text-red-500"
                 }`}
               >
-                {product.stock > 0 ? `In Stock (${product.stock} available)` : "Out of Stock"}
+                {product.stock > 0
+                  ? `In Stock (${product.stock} available)`
+                  : "Out of Stock"}
               </span>
             </div>
 
