@@ -14,41 +14,28 @@ const Login = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const { setIsUserLoggedIn } = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
 
   const loginSubmit = async (e) => {
     e.preventDefault();
-    setError("");
-
     try {
       const response = await axios.post(
         "https://fit-lite-final-project-server.onrender.com/api/auth/login",
-        { email, password }
+        {
+          email,
+          password,
+        }
       );
 
       if (response.data) {
-        localStorage.setItem("user", JSON.stringify(response.data));
-
-        setIsUserLoggedIn(true);
-
-        setEmail("");
-        setPassword("");
-
-        navigate("/");
+        const { token, ...user } = response.data;
+        localStorage.setItem("token", token);
+        localStorage.setItem("user", JSON.stringify(user));
+        setUser({ ...user, token });
+        navigate("/"); // Redirect to home or any other page
       }
     } catch (error) {
-      console.error("Login error:", error);
-
-      if (error.response?.status === 401) {
-        setError("Invalid email or password");
-      } else if (error.response?.status === 404) {
-        setError("User not found");
-      } else {
-        setError(
-          error.response?.data?.message ||
-            "An error occurred during login. Please try again."
-        );
-      }
+      setError("Invalid email or password");
     }
   };
 
