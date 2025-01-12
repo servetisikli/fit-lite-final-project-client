@@ -119,7 +119,7 @@ const ContactForm = () => {
                   <span className="text-orange-500 fas fa-map-marker-alt"></span>
                 </div>
                 <p className="ml-4 mt-3">
-                  Adress:{" "}
+                  Address:{" "}
                   <span className="ml-2 text-orange-500">
                     Königstr.11, 78050 Berlin
                   </span>
