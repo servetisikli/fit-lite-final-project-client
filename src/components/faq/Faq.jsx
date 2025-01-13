@@ -41,9 +41,19 @@ export default function Faq() {
             </AccordionSummary>
             <AccordionDetails>
               <p className="text-gray-600">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                eget.
+                At FitLite, our goal is to empower fitness enthusiasts by
+                providing optimal equipment tailored to their needs. We believe
+                everyone should have the opportunity to build their own training
+                and fitness gym at home with ease and efficiency. Our carefully
+                designed products are crafted to deliver the best experience,
+                ensuring durability, functionality, and style. Whether you're
+                starting your fitness journey or enhancing your setup, FitLite
+                has the tools to help you succeed. We prioritize quality and
+                innovation, making it easy for our customers to achieve their
+                goals. With FitLite, you can transform any space into a personal
+                gym that supports your health and well-being. Join us in
+                creating a fitness lifestyle that fits your home, your goals,
+                and your life.
               </p>
             </AccordionDetails>
           </Accordion>
@@ -70,9 +80,10 @@ export default function Faq() {
             </AccordionSummary>
             <AccordionDetails>
               <p className="text-gray-600">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                eget.
+                Becoming a FitLite member is quick and easy! Start by visiting
+                our website and navigating to the "Membership" section. From
+                there, fill out a simple registration form with your details,
+                and choose the membership plan that best suits your needs.
               </p>
             </AccordionDetails>
           </Accordion>
@@ -99,9 +110,14 @@ export default function Faq() {
             </AccordionSummary>
             <AccordionDetails>
               <p className="text-gray-600">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                eget.
+                Once you've completed the sign-up process, you will gain access
+                to exclusive perks, including member-only discounts, early
+                access to new products, and personalized fitness tips. As a
+                member, you'll be part of a community that is passionate about
+                fitness and dedicated to achieving their goals. Whether you're
+                setting up your first home gym or upgrading your equipment, we
+                are here to support you every step of the way. Do nott wait—join
+                today and unlock the full FitLite experience!
               </p>
             </AccordionDetails>
           </Accordion>
