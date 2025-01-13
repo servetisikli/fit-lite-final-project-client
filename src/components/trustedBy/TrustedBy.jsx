@@ -2,7 +2,7 @@ import React from "react";
 import Crossfit from "../../assets/logos/Crossfit.jpg";
 import BodyMatters from "../../assets/logos/Body Matters.jpg";
 import Odujelo from "../../assets/logos/ODUJEL0.jpg";
-import Workout from "../../assets/logos/Workout.jpg";
+import Workout from "../../assets/logos/Workout.png";
 
 const TrustedBy = () => {
   return (
