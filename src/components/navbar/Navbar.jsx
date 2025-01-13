@@ -48,10 +48,10 @@ const Navbar = () => {
 
   const mainCategories = [
     { name: "New Arrivals", path: "/new-arrivals" },
-    { name: "Women", path: "/women" },
-    { name: "Men", path: "/men" },
+    { name: "Cardio", path: "/shop?cat=Cardio" },
+    { name: "Aerobic", path: "/shop?cat=Aerobic" },
     { name: "Sport", path: "/sport" },
-    { name: "Accessories", path: "/accessories" },
+    { name: "Accessories", path: "/shop?cat=Accesories" },
     { name: "Sale", path: "/sale" },
   ];
 

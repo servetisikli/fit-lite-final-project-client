@@ -36,9 +36,9 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-700 flex">
-      <div className="mt-56 container mx-auto px-6 ">
-        <div className="text-center mb-12"></div>
+    <div className="min-h-screen bg-gray-700 flex items-center justify-center px-4">
+      <div className=" w-full container mx-auto px-6 overflow-hidden ">
+        <div className="text-center mb-28"></div>
         <div className="flex justify-center">
           <div className="w-full max-w-4xl flex flex-wrap bg-customNavbar shadow-lg rounded-lg overflow-hidden">
             {/* Contact Form */}
