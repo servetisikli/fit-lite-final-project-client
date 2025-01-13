@@ -81,7 +81,8 @@ export default function Faq() {
             <AccordionDetails>
               <p className="text-gray-600">
                 Becoming a FitLite member is quick and easy! Start by visiting
-                our website and navigating to the "Membership" section. From
+                our website and sign up. Once you've completed the sign-up
+                process, then navigating to the "Membership" section. From
                 there, fill out a simple registration form with your details,
                 and choose the membership plan that best suits your needs.
               </p>
@@ -110,14 +111,13 @@ export default function Faq() {
             </AccordionSummary>
             <AccordionDetails>
               <p className="text-gray-600">
-                Once you've completed the sign-up process, you will gain access
-                to exclusive perks, including member-only discounts, early
-                access to new products, and personalized fitness tips. As a
-                member, you'll be part of a community that is passionate about
-                fitness and dedicated to achieving their goals. Whether you're
-                setting up your first home gym or upgrading your equipment, we
-                are here to support you every step of the way. Do nott wait—join
-                today and unlock the full FitLite experience!
+                You will gain access to exclusive perks, including member-only
+                discounts, early access to new products, and personalized
+                fitness tips. As a member, you'll be part of a community that is
+                passionate about fitness and dedicated to achieving their goals.
+                Whether you're setting up your first home gym or upgrading your
+                equipment, we are here to support you every step of the way. Do
+                nott wait—join today and unlock the full FitLite experience!
               </p>
             </AccordionDetails>
           </Accordion>
