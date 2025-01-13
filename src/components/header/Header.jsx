@@ -23,14 +23,12 @@ function Header() {
       <div className="relative z-10 container mx-auto px-4 text-center">
         {/* Main Heading */}
         <h1 className="text-white text-6xl font-bold mb-6 font-koho transform transition-all duration-700 hover:scale-105">
-          FITlite WELCOMES YOU
+          FIT<span className="text-cyan-500">lite</span> WELCOMES YOU
         </h1>
 
         {/* Subheading */}
         <p className="text-3xl text-slate-30 font-semibold mb-12 tracking-wide bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text">
           GEAR UP!WORK UP!GLOW UP!
-          {/*  GEAR UP! <span className="text-yellow-500">WORK UP! </span>
-          <span className="text-yellow-300">GLOW UP!</span> */}
         </p>
 
         {/* Buttons Container */}
