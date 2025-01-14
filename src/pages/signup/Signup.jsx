@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import PersonIcon from "@mui/icons-material/Person";
@@ -34,6 +34,9 @@ const Registration = () => {
       console.error("Registration error:", error);
     }
   };
+  useEffect(() => {
+    window.scrollTo(window.innerWidth, 0);
+  }, []);
 
   return (
     <div className="min-h-screen bg-customLightPurple flex items-center justify-center px-4">
