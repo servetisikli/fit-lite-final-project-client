@@ -14,7 +14,7 @@ const Registration = () => {
   const [visibleEye, setVisibleEye] = useState(false);
   const navigate = useNavigate();
 
-  const userData = { username: name, email, password };
+  const userData = { name, email, password };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -62,8 +62,8 @@ const Registration = () => {
             <div className="relative">
               <input
                 type="text"
-                name="Username"
-                placeholder="Username"
+                name="Name"
+                placeholder="Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="w-full px-4 py-3 bg-white/10 text-white border border-white/20 rounded-lg focus:outline-none focus:border-customPurple transition-colors duration-300"
