@@ -32,6 +32,10 @@ const OrderHistory = () => {
     fetchOrders();
   }, [user]);
 
+  useEffect(() => {
+    window.scrollTo(window.innerWidth, 0);
+  }, []);
+
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">

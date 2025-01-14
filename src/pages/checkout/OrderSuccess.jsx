@@ -1,11 +1,16 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import { FiCheckCircle, FiHome, FiShoppingBag } from "react-icons/fi";
 
 const OrderSuccess = () => {
   const location = useLocation();
   const { orderNumber, orderTotal, orderItems, customerInfo, shippingAddress } =
     location.state || {};
+
+  useEffect(() => {
+    window.scrollTo(window.innerWidth, 0);
+  }, []);
 
   return (
     <div className=" bg-gray-50 flex items-center justify-center mt-20 sm:mt-30 md:mt-40 lg:mt-40 xl:mt-40">
