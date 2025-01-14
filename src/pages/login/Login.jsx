@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
@@ -38,6 +38,9 @@ const Login = () => {
       setError("Invalid email or password");
     }
   };
+  useEffect(() => {
+    window.scrollTo(window.innerWidth, 0);
+  }, []);
 
   return (
     <div className="min-h-screen bg-customLightPurple flex items-center justify-center px-4">

@@ -30,7 +30,7 @@ const Footer = () => {
             <ul className="space-y-4">
               <li>
                 <a
-                  href="#"
+                  href="/about"
                   className="text-white hover:text-customPurple transition-colors duration-300"
                 >
                   About Us
