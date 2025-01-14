@@ -14,7 +14,7 @@ const Registration = () => {
   const [visibleEye, setVisibleEye] = useState(false);
   const navigate = useNavigate();
 
-  const userData = { name, email, password };
+  const userData = { username: name, email, password };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
