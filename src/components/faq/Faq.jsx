@@ -117,7 +117,7 @@ export default function Faq() {
                 passionate about fitness and dedicated to achieving their goals.
                 Whether you're setting up your first home gym or upgrading your
                 equipment, we are here to support you every step of the way. Do
-                nott wait—join today and unlock the full FitLite experience!
+                not wait, join today and unlock the full FitLite experience!
               </p>
             </AccordionDetails>
           </Accordion>
