@@ -236,6 +236,9 @@ const Checkout = () => {
       )}
     </div>
   );
+  useEffect(() => {
+    window.scrollTo(window.innerWidth, 0);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gray-50 py-12 mt-20 sm:mt-30 md:mt-40 lg:mt-40 xl:mt-40">
